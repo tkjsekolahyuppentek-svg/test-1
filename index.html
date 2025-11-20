@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Produk Tembakau (bako linting) assesories</title>
+
+<link rel="icon" type="image/png" href="../tahap1/gambar/logo toko/logo.jpg">
+<link rel="stylesheet" href="style.css">
+
+<style>
+  .filter-box {
+    display:flex; gap:10px; margin:20px 0;
+  }
+  .filter-box input, .filter-box select {
+    padding:10px; border-radius:8px; border:1px solid #ccc;
+    font-size:14px; width:100%; max-width:200px;
+  }
+
+  /* KATEGORI */
+  .kategori-box { background:#fff; padding:15px; border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1); margin-bottom:20px; }
+  .kategori-item { padding:10px; font-size:18px; cursor:pointer; }
+  .kategori-item:hover { color:red; }
+
+  /* GRID PRODUK */
+  .products { display:grid; grid-template-columns:repeat(3,1fr);
+    gap:15px; margin-top:20px; }
+  .produk-card { background:#fff; border-radius:10px; padding:10px;
+     box-shadow:0 3px 6px rgba(0,0,0,0.1); cursor:pointer; text-align:center; }
+  .produk-card img { width:100%; border-radius:8px; }
+
+  /* DETAIL PRODUK */
+  #detail-box { display:none; padding:20px; background:#fff;
+    border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.1); }
+  #detail-content { display:flex; gap:20px; }
+  #detail-content img { width:250px; border-radius:10px; }
+  .back-btn { cursor:pointer; margin-bottom:15px; display:inline-block; }
+</style>
+
+</head>
+<body>
+
+<header>
+  <h1>Produk Tembakau</h1>
+  <p>Kualitas terbaik, harga bersahabat</p>
+</header>
+
+<!-- FLOAT CART -->
+<div id="cart-float">🛒 <span id="cart-count">0</span></div>
+
+<!-- PANEL CART -->
+<div id="cart-panel">
+  <div id="cart-box">
+    <h2>Keranjang</h2>
+    <div id="cart-items"></div>
+    <h3>Total: Rp <span id="cart-total">0</span></h3>
+    <button id="checkout" class="checkout-btn">Checkout</button>
+    <button id="close-cart" class="close-btn">Tutup</button>
+  </div>
+</div>
+
+<!-- FORM ALAMAT -->
+<div id="alamat-panel">
+  <div id="alamat-box">
+    <h2>Masukkan Data Pengiriman</h2>
+    <input id="alamat-input" type="text" placeholder="Ketik alamat lengkap..." />
+
+    <h3>Jenis Ongkir:</h3>
+    <input type="text" id="jenis-ongkir" placeholder="Reguler / Sameday / Cargo">
+
+    <h3>Pilih Kurir:</h3>
+    <select id="kurir">
+      <option value="Kurir Toko">Kurir Toko</option>
+      <option value="JNE">JNE</option>
+      <option value="TIKI">TIKI</option>
+      <option value="POS Indonesia">POS Indonesia</option>
+    </select>
+
+    <h3>Pilih Metode Pembayaran:</h3>
+    <select id="payment">
+      <option value="QRIS">QRIS</option>
+      <option value="Transfer Bank">Transfer Bank</option>
+      <option value="E-Wallet">E-Wallet</option>
+    </select>
+
+    <button id="confirm-alamat" class="checkout-btn">Kirim via WhatsApp</button>
+    <button id="close-alamat" class="close-btn">Batal</button>
+  </div>
+</div>
+
+<section class="section">
+
+  <!-- KATEGORI PRODUK -->
+  <h2>Kategori Produk</h2>
+  <div class="kategori-box" id="kategoriBox">
+    <div class="kategori-item" onclick="openKategori('PAPIR / KERTAS LINTING')">■ PAPIR / KERTAS LINTING</div>
+    <div class="kategori-item" onclick="openKategori('ALAT LINTING')">■ ALAT LINTING</div>
+    <div class="kategori-item" onclick="openKategori('BUSA / FILTER / SPONS')">■ BUSA / FILTER / SPONS</div>
+    <div class="kategori-item" onclick="openKategori('TEMBAKAU NUSANTARA')">■ TEMBAKAU NUSANTARA</div>
+    <div class="kategori-item" onclick="openKategori('ASESORIS ROKOK')">■ ASESORIS ROKOK</div>
+  </div>
+
+  <h2 id="judulKategori" style="display:none;"></h2>
+
+  <!-- GRID PRODUK -->
+  <div class="products" id="productGrid" style="display:none;"></div>
+
+  <!-- DETAIL PRODUK -->
+  <div id="detail-box">
+    <span class="back-btn" onclick="backToProduk()">◀ Kembali</span>
+    <div id="detail-content">
+      <img id="detailImg" src="">
+      <div>
+        <h2 id="detailNama"></h2>
+        <p id="detailDesk"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 Toko Rokok Digital - Semua hak dilindungi.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
