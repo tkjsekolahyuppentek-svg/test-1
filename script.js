@@ -36,7 +36,41 @@ const produkList = [
   kategori:"PAPIR / KERTAS LINTING",
   gambar:"../tahap1/gambar/gambar produk/raw-classic.jpg",
   deskripsi:"RAW original import • 50 lembar • Natural unbleached."
-}
+},
+
+// ALAT LINTING
+{
+  nama:"Linting Brown Natural 50 Lembar",
+  harga:5000,
+  stok:100,
+  kategori:"ALAT LINTING",
+  gambar:"../tahap1/gambar/gambar produk/papir-brown.jpg",
+  deskripsi:"Kertas linting natural warna coklat. Tebal, tidak mudah robek."
+},
+{
+  nama:"Papir Linting Transparan Ultra Thin",
+  harga:7000,
+  stok:100,
+  kategori:"PAPIR / KERTAS LINTING",
+  gambar:"../tahap1/gambar/gambar produk/papir-anak.jpg",
+  deskripsi:"Ultra tipis, pembakaran halus, tanpa bahan kimia tambahan."
+},
+{
+  nama:"OCB Brown Paper Slim Long",
+  harga:12000,
+  stok:50,
+  kategori:"PAPIR / KERTAS LINTING",
+  gambar:"../tahap1/gambar/gambar produk/ocb-slim.jpg",
+  deskripsi:"OCB premium slim panjang • 32 lembar • Tebal merata."
+},
+{
+  nama:"RAW Classic Rolling Paper",
+  harga:15000,
+  stok:70,
+  kategori:"PAPIR / KERTAS LINTING",
+  gambar:"../tahap1/gambar/gambar produk/raw-classic.jpg",
+  deskripsi:"RAW original import • 50 lembar • Natural unbleached."
+},
 ];
 
 let cart = [];
