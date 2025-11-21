@@ -1,39 +1,3 @@
-body { font-family: "Poppins", sans-serif; margin:0; background-color:#f6f3ec; color:#3a2f22; }
-header { background-color:#4b3b29; color:#fff; padding:20px; text-align:center; }
-header h1 { margin:0; font-size:2rem; letter-spacing:2px; }
-.section { padding:50px 20px; max-width:1000px; margin:auto; }
-.about { text-align:center; }
-.about p { line-height:1.6; max-width:700px; margin:10px auto; }
-.products { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; margin-top:40px; }
-.product-card { background-color:#fff; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.15); overflow:hidden; transition: transform 0.2s; }
-.product-card:hover { transform:scale(1.03); }
-.product-card img {
-  width: 100%;
-  height: auto; 
-  object-fit: unset;
-}
-.product-info { padding:15px; }
-.product-info h3 { margin:0; font-size:1.2rem; color:#4b3b29; }
-.desc { font-size:0.9rem; color:#7b6a55; font-style:italic; margin-top:4px; }
-.price { color:#6b4e2e; font-weight:bold; margin-top:10px; }
-.add-cart-btn { background:#ff9800; color:white; padding:8px 15px; display:block; text-align:center; border-radius:8px; margin-top:8px; cursor:pointer; }
-
-#cart-float { border:2px solid #000; padding:10px 15px; border-radius:50px; background:white; position:fixed; bottom:20px; right:20px; font-size:18px; font-weight:bold; cursor:pointer; box-shadow:0 3px 5px rgba(0,0,0,0.2); z-index:999; }
-
-#cart-panel, #alamat-panel { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:none; justify-content:center; align-items:center; z-index:99999; }
-#cart-box, #alamat-box { background:#fff; width:90%; max-width:420px; padding:20px; border-radius:15px; }
-.cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
-.checkout-btn, .close-btn, #confirm-alamat { background:#28a745; color:white; padding:10px; width:100%; border-radius:10px; margin-top:10px; cursor:pointer; }
-.close-btn { background:#d40000; }
-.cart-qty { display:flex; align-items:center; gap:6px; }
-.qty-btn { width:28px; height:28px; border:none; border-radius:6px; background:#eaeaea; cursor:pointer; font-size:18px; font-weight:bold; text-align:center; line-height:28px; }
-.qty-btn:hover { background:#d4d4d4; }
-.remove-btn { background:none; border:none; color:#d40000; font-size:20px; cursor:pointer; margin-left:10px; }
-#alamat-input { width:100%; padding:8px; font-size:1rem; margin-top:10px; }
-.payment-method { margin-top:10px; }
-.payment-method label { display:block; margin-bottom:5px; cursor:pointer; }
-.payment-method input { margin-right:8px; }
-
 /* ===== STYLE DASAR ===== */
 body {
   font-family: "Poppins", sans-serif;
@@ -259,8 +223,9 @@ header h1 {
     padding: 25px 15px;
   }
 
+  /* ★ FIX UTAMA: card lebih lebar agar teks tidak rusak */
   .products {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
   }
 
@@ -289,20 +254,89 @@ header h1 {
   .product-info h3 {
     font-size: 1rem;
   }
+
+  /* ★ FIX TEKS AGAR TIDAK KEPESET DI HP */
+  .product-info h3,
+  .desc {
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
 }
 
-/* Batasi nama & deskripsi agar tidak panjang ke bawah */
+/* ===== DESKTOP: batasi 2 baris agar rapi ===== */
 .product-info h3 {
   display: -webkit-box;
-  -webkit-line-clamp: 2; 
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .desc {
   display: -webkit-box;
-  -webkit-line-clamp: 2; 
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ========================================= */
+/* ========== FINAL RESPONSIVE FIX ========= */
+/* ========================================= */
+
+@media (max-width: 600px) {
+
+  /* FIX UTAMA: pastikan ukuran gambar stabil */
+  .product-card img {
+      width: 100% !important;
+      height: 180px !important;
+      object-fit: cover !important;
+      display: block;
+  }
+
+  /* FIX: kartu tidak boleh menyempit */
+  .product-card {
+      width: 100% !important;
+      max-width: 100% !important;
+  }
+
+  /* FIX: grid tidak boleh membuat card terlalu kecil */
+  .products {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+      gap: 15px;
+  }
+
+  /* FIX: teks tidak terpotong aneh */
+  .product-info h3,
+  .desc {
+      display: block !important;
+      -webkit-line-clamp: unset !important;
+      overflow: visible !important;
+      white-space: normal !important;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* Gambar TIDAK dipotong */
+  .product-card img {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      display: block;
+  }
+
+  /* Card tetap lebar normal */
+  .products {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  }
+
+  /* Teks tidak terpotong */
+  .product-info h3,
+  .desc {
+      display: block !important;
+      -webkit-line-clamp: unset !important;
+      overflow: visible !important;
+      white-space: normal !important;
+  }
 }
 
