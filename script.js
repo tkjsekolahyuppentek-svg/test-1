@@ -22,7 +22,7 @@ const produkList = [
     stok:100,
     berat:20,
     kategori:"PAPIR / KERTAS LINTING",
-    gambar:"../tahap1/gambar/gambar produk/papir-brown.jpg",
+    gambar:"/gambar/gambar produk/papir-brown.jpg",
     deskripsi:"Kertas linting natural warna coklat. Tebal, tidak mudah robek."
   },
   {
